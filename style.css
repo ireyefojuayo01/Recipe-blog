@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Step 1: Global Reset & Variables
+   ========================================================================== */
+:root {
+  --primary-color: #2e5a44; /* Forest Green */
+  --text-color: #2b2b2b;    /* Dark Gray */
+  --bg-color: #fcfbf9;      /* Light Off-White */
+  --card-bg: #ffffff;       /* Pure White */
+  --border-color: #e2e8f0;  /* Muted Light Gray */
+  --spacing-gap: 30px;
+  --radius-sm: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   Step 2: The Header Section
+   ========================================================================== */
+.site-header {
+  background: var(--card-bg);
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+.site-wrap {
+  display: flex;
+  flex-wrap: wrap;            /* lets the nav drop below the logo on small screens */
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+  gap: 16px 25px;
+  list-style-type: none;
+}
+
+li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+nav ul li a:hover{
+  text-decoration: underline;
+}
+.logo {
+  font-weight: 700;
+  font-size: 2rem;
+  font-family: Georgia, serif;
+}
+
+/* ==========================================================================
+   Layout container
+   ========================================================================== */
+.container {
+  width: 90%;                 /* fluid on phones and tablets */
+  max-width: 1200px;          /* never wider than the design on large screens */
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero-section {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #012e16;
+}
+
+.feature-image,
+.hero-content {
+  width: 50%;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  padding: 1.5rem;
+  color: var(--border-color);
+}
+
+.hero-content h1 {
+  font-family: Georgia, serif;
+  font-weight: 800;
+  font-size: 2.5em;
+}
+
+.hero-content p {
+  font-size: 1.25em;
+}
+
+.cta-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: var(--primary-color);
+  padding: .75em 1.25em;
+  border-radius: .5em;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Main layout: recipes + sidebar
+   ========================================================================== */
+.layout-wrapper {
+  display: flex;
+  gap: var(--spacing-gap);
+  align-items: flex-start;
+}
+
+.recipes {
+  width: 70%;
+}
+
+.side-bar {
+  width: 30%;
+}
+
+/* ==========================================================================
+   Recipe grid and cards
+   ========================================================================== */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.recipe-card {
+  display: flex;
+  gap: 16px;
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  min-width: 0;
+}
+
+.recipe-img {
+  flex: 0 0 120px;
+  height: 120px;
+}
+
+.recipe-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.recipe-card .content {
+  flex: 1;
+  min-width: 0;
+}
+
+.recipe-card h2 {
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  margin: 6px 0;
+}
+
+.recipe-card p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.tag {
+  display: inline-block;
+  background: #d9efe3;
+  font-size: 0.8rem;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Sidebar widgets
+   ========================================================================== */
+.widget {
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-picture img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px;
+}
+
+.widget h2 {
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.widget p {
+  font-size: 0.9rem;
+  color: #5b625e;
+}
+
+.subscribe {
+  background: var(--primary-color);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  padding: 12px;
+  margin: -24px -24px 16px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.widget form {
+  display: flex;
+  gap: 8px;
+}
+
+.widget input[type="email"] {
+  flex: 1;
+  min-width: 0;               /* lets the input shrink on narrow screens */
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.widget input[type="button"] {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+
+.footer-content{
+  display: flex;
+  padding-top: .8rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  font-family: sans-serif;
+}
+/* ==========================================================================
+   Responsive breakpoints
+   ========================================================================== */
+
+/* Tablets and small laptops: stack the main columns */
+@media (max-width: 900px) {
+  .layout-wrapper {
+    flex-direction: column;
+  }
+  .recipes,
+  .side-bar {
+    width: 100%;
+  }
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Phones: stack the hero and the card contents */
+@media (max-width: 600px) {
+  .hero-section {
+    flex-direction: column;
+  }
+  .feature-image,
+  .hero-content {
+    width: 100%;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-content {
+    padding: 1rem;
+  }
+  .recipe-card {
+    flex-direction: column;
+  }
+  .recipe-img {
+    flex: none;
+    width: 100%;
+    height: 180px;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  nav ul {
+    padding: 0.25rem 0;
+  }
+}
